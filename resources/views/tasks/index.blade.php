@@ -1,12 +1,11 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-	</head>
-	<body>
+@extends('layouts.master')
+
+@section('content')
 		<h1>All Tasks</h1>
+		<ul class ="list-group">
 		@foreach($tasks as $task)
-			<li><a href = "{{ url("tasks/$task->id")}}"> {{$task['title']}} </li>
+			<li class="list-group-item"><a href = "{{ url("tasks/$task->id")}}"> {{$task['title']}} </li>
 		@endforeach
-	</body>
-</html>
+		</ul>
+
+@stop
