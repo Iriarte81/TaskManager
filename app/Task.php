@@ -31,7 +31,9 @@ class Task extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	// protected $hidden = ['password', 'remember_token'];
 
-
+	public function user() {
+		return $this->belongsTo('App\User');
+	}
 
 
 }

@@ -2,6 +2,7 @@
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Redirect;
 
 class Handler extends ExceptionHandler {
 
@@ -34,9 +35,16 @@ class Handler extends ExceptionHandler {
 	 * @param  \Exception  $e
 	 * @return \Illuminate\Http\Response
 	 */
+
 	public function render($request, Exception $e)
 	{
-		return parent::render($request, $e);
+    	
+    if($e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) { 
+    
+    	return Redirect::home();
+    }
+
+    return parent::render($request, $e);
 	}
 
 }
