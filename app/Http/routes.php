@@ -33,11 +33,12 @@ Route::get('{username}', function($username) {
 Route::get('{username}/tasks/{id}', function ($username, $id) {
 
 // find the task by its id
-$user = User::whereUsername($username)->first();
-$task = $user->tasks()->findorFail($id);
+$user = User::with('tasks')->whereUsername($username)->first();
+$task = $user->tasks;
+//$task = $user->tasks()->findorFail($id);
 
 // and load a view to display it
-return View::make('tasks.show', compact('task'));
+return View::make('tasks.show', compact('user', 'task'));
 });
 /*Route::get('/', 'WelcomeController@index');
 
