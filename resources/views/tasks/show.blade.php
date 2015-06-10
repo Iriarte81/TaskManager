@@ -4,5 +4,5 @@
 	<h1>{{ $task->title }}</h1>
 	<article> {{ $task->body }} </article>
 
-	<p><a href= "{{ url("/tasks")}}">Go Back</p> 
+	<p><a href= "{{ url("/")}}">Go Back</p> 
 @stop
