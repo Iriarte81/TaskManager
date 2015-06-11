@@ -14,6 +14,8 @@ use App\User;
 
 Route::get('/', ['as' => 'home', 'uses' => 'TasksController@index']);
 
+Route::post('/tasks', 'TasksController@store');
+
 Route::get('tasks/{id}', 'TasksController@show')->where('id', '\d+');
 
 Route::get('{username}/tasks', 'UserTasksController@index');

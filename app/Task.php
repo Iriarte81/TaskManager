@@ -22,8 +22,8 @@ class Task extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['title', 'body', 'completed'];
-
+	// protected $fillable = ['title', 'body', 'completed'];
+	protected $guarded = ['id'];
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
