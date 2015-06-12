@@ -5,8 +5,16 @@ use View;
 use App\User;
 use Input;
 use Redirect;
+use App\Acme\Services\TaskCreatorService;
+use App\Acme\Services\ValidationException;
 
 class TasksController extends Controller {
+
+
+	public function __construct(TaskCreatorService $taskCreator) {
+		$this->taskCreator = $taskCreator;
+	}
+
 
 	public function index() {
 
@@ -32,15 +40,15 @@ class TasksController extends Controller {
 
 	public function store() {
 
-		$input = Input::all();
+	try {
 
-		Task::create([
-			'title' => $input['title'],
-			'body' => $input['body'],
-			'user_id' => $input['assign']
-			]);
+		$this->taskCreator->make(Input::all());
+	
+	} catch (ValidationException $e) {
+	
+		return Redirect::back()->withInput()->withErrors($e->getErrors());
+	}
 
-		return Redirect::to('/');
-
+		return Redirect::home();
 	}
 }
