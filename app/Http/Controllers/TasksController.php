@@ -19,7 +19,7 @@ class TasksController extends Controller {
 	public function index() {
 
 		// fetch all tasks
-		$tasks = Task::with('user')->get();
+		$tasks = Task::with('user')->orderBy('created_at', 'desc')->get();
 		$users = User::lists('username', 'id');
 		//$users = User::get(['id', 'username']);
 		
@@ -40,7 +40,15 @@ class TasksController extends Controller {
 
 	public function store() {
 
-	try {
+	$task = new Task(Input::all());
+
+	if (! $task->save()) {
+
+		return Redirect::back()->withInput()->withErrors($task->getErrors());
+	}
+
+
+	/*try {
 
 		$this->taskCreator->make(Input::all());
 	
@@ -48,7 +56,19 @@ class TasksController extends Controller {
 	
 		return Redirect::back()->withInput()->withErrors($e->getErrors());
 	}
+	*/
+	return Redirect::home();
+}
+
+
+	public function update($id) {
+
+		$task = Task::find($id);
+		$task->completed = Input::get('completed') ? Input::get('completed') : 0;
+		$task->save();
 
 		return Redirect::home();
+
 	}
+
 }

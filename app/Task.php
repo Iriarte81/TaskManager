@@ -6,7 +6,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class Task extends Model implements AuthenticatableContract, CanResetPasswordContract {
+class Task extends BaseModel implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;
 
@@ -22,8 +22,14 @@ class Task extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	// protected $fillable = ['title', 'body', 'completed'];
-	protected $guarded = ['id'];
+	protected $fillable = ['title', 'body', 'completed'];
+	// protected $guarded = ['id'];
+	
+	protected static $rules = [
+		'title' => 'required',
+		'body'  => 'required'
+	];
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
