@@ -33,7 +33,7 @@ We can't allow users to create new tasks, without first filtering the form data 
 
 If this episode feels a bit overwhelming, that's okay. It's just a teaser. In the next lesson, we'll review a different approach: validation with model events.
 
-#<a href="https://github.com/Iriarte81/TaskManager/commit/5449fff98bd59aa6735d7d4d2eface84abe1070d">Validation Redux and Completing Tasks</a>
+##<a href="https://github.com/Iriarte81/TaskManager/commit/5449fff98bd59aa6735d7d4d2eface84abe1070d">Validation Redux and Completing Tasks</a>
 
 In the previous lesson, I demonstrated a high-level way to manage your validation. We used services and custom exceptions to handle the flow. In this lesson, however, we'll back-track and try a different approach: hooking into model events.
 
