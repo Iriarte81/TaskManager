@@ -2,6 +2,16 @@
 
 @section('content')
 </br>
+    <h3 class="centertitle81"> Welcome to My Task Manager Application</h3>
+	<div class="alert alert-success" role="alert"><b>Instructions: </b>
+	<ul>
+    <li>Create a task by filling out the form.</li>
+    <li>Update a task's status by clicking on the checkbox and then the update button.</li>
+    <li>See all tasks associated with one person by clicking on the Gravatar Icon.</li>
+    <li>See details about the task by clicking on its title.</li>
+    </ul>
+    </div>
+
 	<div style="float:left;" >
 		<h3 style="padding-top: 20px">All Tasks</h3>
 		<ul class ="list-group">
