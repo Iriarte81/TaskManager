@@ -34,17 +34,29 @@ class UsersTableSeeder extends Seeder {
 		User::truncate();
 
 		User::create([
-			'username' => 'JeffreyWay',
-			'email' => 'Jeffrey@laracasts.com',
+			'username' => 'Jose Iriarte',
+			'email' => 'josemariairiarte@gmail.com',
 			'password' => '1234'
 			]);
 
 		User::create([
-			'username' => 'AllieWay',
-			'email' => 'Allie@laracasts.com',
+			'username' => 'Hueti Iriarte',
+			'email' => 'hueti@example.com',
 			'password' => '1234'
 			]);
 
-	}
+        User::create([
+            'username' => 'Mia Iriarte',
+            'email' => 'mia@example.com',
+            'password' => '1234'
+        ]);
+
+        User::create([
+            'username' => 'Oli Iriarte',
+            'email' => 'oli@example.com',
+            'password' => '1234'
+        ]);
+
+    }
 
 }

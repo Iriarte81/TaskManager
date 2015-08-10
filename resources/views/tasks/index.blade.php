@@ -3,7 +3,7 @@
 @section('content')
 </br>
 	<div style="float:left;" >
-		<h1>All Tasks</h1>
+		<h3 style="padding-top: 20px">All Tasks</h3>
 		<ul class ="list-group">
 		@foreach($tasks as $task)
 		<li class="list-group-item {!! $task->completed ? 'completed' : '' !!}">
@@ -20,30 +20,35 @@
 	</div>
 </br>
 @if (isset($users))
-<div style="float:right">
-<h3 style="float:right">Add New Task</h3>
+<div style="float:right" class="col-lg-7 col-md-7 col-sm-7">
+<h3>Add New Task</h3>
 {!! Form::open( ['url' => '/tasks', 'class' => 'form']) !!}
 
 	<div class="form-group">
 		{!! Form::label('title', 'Title:') !!}
-		{!! Form::text('title', null, ['class' => 'form-control']) !!}
+		{!! Form::text('title', null, ['class' => 'form-control f-c1', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Please enter a title for the task']) !!}
 		{!! $errors->first('title', '<span class=error>:message</span>') !!}
 	</div>
 
 	<div class="form-group">
 		{!! Form::label('body', 'Body:') !!}
-		{!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+		{!! Form::textarea('body', null, ['class' => 'form-control f-c2', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Please describe the task at hand']) !!}
 		{!! $errors->first('body', '<span class=error>:message</span>') !!}
 	</div>
 
 	<div class="form-group">
 		{!! Form::label('user_id', 'Assign To:') !!}
-		{!! Form::select('user_id', $users, null, ['class' => 'form-control']) !!}
+		{!! Form::select('user_id', $users, null, ['class' => 'form-control f-c3', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Please select the person responsible for the task']) !!}
 	</div>
 
 	<div class="form-group">
 		{!! Form::submit('Create Task', ['class' => 'btn btn-primary']) !!}
 	</div>
+
+    <div class="alert alert-info form-group" role="alert"><b>Welcome!</b> This application allows you to record tasks.
+    It has been styled with Bootstrap using the grid system and custom css styles. It includes JQuery functionality like Tooltips and form
+    field shading on focusin and focusout events</div>
+
 </div>
 {!! Form::close() !!}
 @endif

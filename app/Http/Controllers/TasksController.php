@@ -3,7 +3,7 @@
 use App\Task;
 use View;
 use App\User;
-use Input;
+use Illuminate\Support\Facades\Input;
 use Redirect;
 use App\Acme\Services\TaskCreatorService;
 use App\Acme\Services\ValidationException;
@@ -22,7 +22,6 @@ class TasksController extends Controller {
 		$tasks = Task::with('user')->orderBy('created_at', 'desc')->get();
 		$users = User::lists('username', 'id');
 		//$users = User::get(['id', 'username']);
-		
 		// load a view to display them
 		return View::make('tasks.index', compact('tasks', 'users'));
 	}
@@ -39,6 +38,8 @@ class TasksController extends Controller {
 	}
 
 	public function store() {
+
+
 
 	$task = new Task(Input::all());
 

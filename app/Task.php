@@ -22,7 +22,7 @@ class Task extends BaseModel implements AuthenticatableContract, CanResetPasswor
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['title', 'body', 'completed'];
+	protected $fillable = ['title', 'body', 'user_id', 'completed'];
 	// protected $guarded = ['id'];
 	
 	protected static $rules = [
